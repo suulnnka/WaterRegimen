@@ -26,13 +26,14 @@ async function getWaterRegimen(){
 
         if(i.stnm == '三峡水库'){
             let time = moment(i.tm).tz("Asia/Shanghai");
-            let sanxia = '"'+time.format('YYYY-MM-DD hh:mm:ss')+'",'+Number(i.oq)+','+Number(i.q)+','+Number(i.z)+'\n'
+            let sanxia = '"'+time.format('YYYY-MM-DD HH:mm:ss')+'",'+Number(i.oq)+','+Number(i.q)+','+Number(i.z)+'\n'
             fs.appendFileSync('sanxia.csv',sanxia)
+            console.log(time.format)
         }
 
         if(i.stnm == '汉口'){
             let time = moment(i.tm).tz("Asia/Shanghai");
-            let sanxia = '"'+time.format('YYYY-MM-DD hh:mm:ss')+'",'+Number(i.oq)+','+Number(i.q)+','+Number(i.z)+'\n'
+            let sanxia = '"'+time.format('YYYY-MM-DD HH:mm:ss')+'",'+Number(i.oq)+','+Number(i.q)+','+Number(i.z)+'\n'
             fs.appendFileSync('hankou.csv',sanxia)
         }
     }
@@ -50,6 +51,7 @@ async function getWaterRegimen(){
 
 }
 
-let job = new CronJob('0 20 * * * *', getWaterRegimen);
-job.start();
+//let job = new CronJob('0 20 * * * *', getWaterRegimen);
+//job.start();
 
+getWaterRegimen()
