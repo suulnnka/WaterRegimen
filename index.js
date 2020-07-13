@@ -29,6 +29,12 @@ async function getWaterRegimen(){
             let sanxia = '"'+time.format('YYYY-MM-DD hh:mm:ss')+'",'+Number(i.oq)+','+Number(i.q)+','+Number(i.z)+'\n'
             fs.appendFileSync('sanxia.csv',sanxia)
         }
+
+        if(i.stnm == '汉口'){
+            let time = moment(i.tm).tz("Asia/Shanghai");
+            let sanxia = '"'+time.format('YYYY-MM-DD hh:mm:ss')+'",'+Number(i.oq)+','+Number(i.q)+','+Number(i.z)+'\n'
+            fs.appendFileSync('hankou.csv',sanxia)
+        }
     }
 
 
