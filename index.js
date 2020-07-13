@@ -51,7 +51,5 @@ async function getWaterRegimen(){
 
 }
 
-//let job = new CronJob('0 20 * * * *', getWaterRegimen);
-//job.start();
-
-getWaterRegimen()
+let job = new CronJob('0 20 * * * *', getWaterRegimen);
+job.start();
